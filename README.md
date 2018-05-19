@@ -9,11 +9,11 @@ npm i initit
 
 ```js
 #!/usr/bin/env node
-const path = require('path')
 const init = require('initit')
 
 const [ name ] = process.argv.slice(2)
-const template = path.join(__dirname, 'template')
+// user/repo/path
+const template = 'jxnblk/rebass/examples/starter'
 
 init({ name, template })
   .then(res => {
@@ -24,3 +24,5 @@ init({ name, template })
     process.exit(1)
   })
 ```
+
+MIT License

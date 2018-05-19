@@ -3,7 +3,9 @@
   "version": "1.0.0-1",
   "description": "Utility for creating npm init packages",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "./test.js"
+  },
   "keywords": [],
   "author": "Brent Jackson",
   "license": "MIT",
