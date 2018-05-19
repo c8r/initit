@@ -1,6 +1,6 @@
 {
   "name": "initit",
-  "version": "1.0.0-1",
+  "version": "1.0.0-2",
   "description": "Utility for creating npm init packages",
   "main": "index.js",
   "scripts": {
