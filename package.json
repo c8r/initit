@@ -9,6 +9,7 @@
   "keywords": [],
   "author": "Brent Jackson",
   "license": "MIT",
+  "homepage": "https://github.com/c8r/initit",
   "dependencies": {
     "arg": "^2.0.0",
     "cross-spawn": "^6.0.5",
