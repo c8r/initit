@@ -30,10 +30,11 @@ const getTar = ({
   user,
   repo,
   path = '',
-  name
+  name,
+  depth = 3
 }) => {
   const url = `https://codeload.github.com/${user}/${repo}/tar.gz/master`
-  const cmd = `curl ${url} | tar -xz -C ${name} --strip=3 ${repo}-master/${path}`
+  const cmd = `curl ${url} | tar -xz -C ${name} --strip=${depth} ${repo}-master/${path}`
   exec(cmd, { stdio: 'inherit' })
 }
 
@@ -51,6 +52,7 @@ const create = async (opts = {}) => {
   const dirname = path.resolve(opts.name)
   const name = path.basename(dirname)
   const [ user, repo, ...paths ] = opts.template.split('/')
+  const depth = opts.templateDepth
 
   fs.ensureDirSync(name)
 
@@ -58,7 +60,8 @@ const create = async (opts = {}) => {
     name,
     user,
     repo,
-    path: paths.join('/')
+    path: paths.join('/'),
+    depth
   }))
 
   const templatePkg = require(
