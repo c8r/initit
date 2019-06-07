@@ -31,7 +31,7 @@ const getTar = ({
   repo,
   path = '',
   name,
-  depth = 3
+  depth
 }) => {
   const url = `https://codeload.github.com/${user}/${repo}/tar.gz/master`
   const cmd = `curl ${url} | tar -xz -C ${name} --strip=${depth} ${repo}-master/${path}`
@@ -52,7 +52,7 @@ const create = async (opts = {}) => {
   const dirname = path.resolve(opts.name)
   const name = path.basename(dirname)
   const [ user, repo, ...paths ] = opts.template.split('/')
-  const depth = opts.templateDepth
+  const depth = paths.length+1
 
   fs.ensureDirSync(name)
 
