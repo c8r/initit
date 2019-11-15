@@ -3,7 +3,7 @@ const name = 'temp'
 const template = 'c8r/kit/templates/next'
 
 const init = require('./index')
-init({ name, template })
+init({ name, template, client: 'yarn' })
   .then(res => {
     process.exit(0)
   })

@@ -1,6 +1,6 @@
 {
   "name": "initit",
-  "version": "1.0.0-2",
+  "version": "1.1.0",
   "description": "Utility for creating npm init packages",
   "main": "index.js",
   "scripts": {
@@ -11,8 +11,8 @@
   "license": "MIT",
   "homepage": "https://github.com/c8r/initit",
   "dependencies": {
-    "arg": "^2.0.0",
-    "cross-spawn": "^6.0.5",
-    "fs-extra": "^6.0.1"
+    "arg": "^4.1.1",
+    "cross-spawn": "^7.0.1",
+    "fs-extra": "^8.1.0"
   }
 }

@@ -4,9 +4,9 @@ const os = require('os')
 const exec = require('child_process').execSync
 const spawn = require('cross-spawn')
 
-const install = () => {
+const install = ({ client }) => {
   return new Promise((resolve, reject) => {
-    const child = spawn('npm', [ 'install' ], {
+    const child = spawn(client || 'npm', [ 'install' ], {
       stdio: 'inherit'
     })
     child.on('close', code => {
@@ -40,12 +40,10 @@ const getTar = ({
 const create = async (opts = {}) => {
   if (!opts.name) {
     throw new Error('name argument required')
-    return
   }
 
   if (!opts.template) {
     throw new Error('template argument required')
-    return
   }
 
   const dirname = path.resolve(opts.name)
@@ -77,7 +75,7 @@ const create = async (opts = {}) => {
 
   process.chdir(dirname)
 
-  const installed = await install()
+  const installed = await install({ client: opts.client })
   const initialized = gitInit()
 
   exec('npm test', { stdio: 'inherit' })
