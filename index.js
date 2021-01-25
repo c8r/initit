@@ -31,7 +31,7 @@ const getTar = ({
   repo,
   path = '',
   name,
-  depth
+  depth = 3
 }) => {
   const url = `https://codeload.github.com/${user}/${repo}/tar.gz/master`
   const cmd = `curl ${url} | tar -xz -C ${name} --strip=${depth} ${repo}-master/${path}`
